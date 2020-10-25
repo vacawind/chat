@@ -1,22 +1,19 @@
 
 lines = []
-with open('input.txt', 'r', encoding = "utf-8") as f:
+with open('input.txt', 'r', encoding = "utf-8-sig") as f:
 	for line in f:
-		lines.append(line.strip().strip('\ufeff'))
+		lines.append(line.strip())
 
-flag = 0
+person = None
 chat = []
 for line in lines:
 	if line == 'Allen':
-		flag = 1
+		person = 'Allen'
 		continue
 	elif line == 'Tom':
-		flag = 2 
+		person = 'Tom' 
 		continue
-	if flag == 1:
-		chat.append( 'Allen：' + line )
-	if flag == 2:
-		chat.append( 'Tom：' + line )
+	chat.append( person + '：' + line )
 print(chat)
 
 with open('output.txt', 'w', encoding = 'utf-8') as f:
